@@ -8,8 +8,6 @@ file = open("id.txt", "r")
 id = file.read()
 id = id[:-1]
 
-firstread = True
-
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 GPIO.cleanup()
@@ -21,7 +19,6 @@ displej.display_string("Nacitam data", 1)
 
 while (1):
         data = cidlo.read()
-	print("loop")
         if data.is_valid():
 		teplota = data.temperature
 		vlhkost = data.humidity
@@ -33,15 +30,5 @@ while (1):
                 displej.display_string("Teplota je: %d C " % teplota, 1)
                 displej.display_string("Vlhkost je: %d %%" % vlhkost, 2)
 		print("Update")
-		firstread = False
-
-        if firstread == True:
-		time.sleep(1)
-	else:
-		time.sleep(30)
-		
-
-
-
-
-
+		time.sleep(120)
+	time.sleep(1)
