@@ -1,3 +1,5 @@
+#První verze meteostanice, nefunkční venkovní teplota a přeskakování displeje 
+
 from lcd_display import lcd
 import RPi.GPIO as GPIO
 import time
@@ -12,14 +14,14 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 GPIO.cleanup()
 
-cidlo = dht11.DHT11(pin = 7)
+cidlo = dht11.DHT11(pin = 11)
 displej = lcd()
 
 displej.display_string("Nacitam data", 1)
 
 while (1):
         data = cidlo.read()
-        if data.is_valid():
+	if data.is_valid():
 		teplota = data.temperature
 		vlhkost = data.humidity
 

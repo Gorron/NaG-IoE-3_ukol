@@ -1,3 +1,5 @@
+#Zobrazení pozdravu na displeji
+
 from lcd_display import lcd
 
 my_lcd = lcd()
